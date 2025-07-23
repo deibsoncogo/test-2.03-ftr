@@ -1,0 +1,29 @@
+{
+  "name": "test-2.03-ftr",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deibsoncogo/test-2.03-ftr.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deibsoncogo/test-2.03-ftr/issues"
+  },
+  "homepage": "https://github.com/deibsoncogo/test-2.03-ftr#readme",
+  "type": "commonjs",
+  "directories": {
+    "test": "test"
+  },
+  "description": "",
+  "devDependencies": {
+    "chai": "^5.2.1",
+    "mocha": "^11.7.1",
+    "sinon": "^21.0.0"
+  }
+}
