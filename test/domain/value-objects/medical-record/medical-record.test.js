@@ -17,13 +17,13 @@ describe("Medical record", () => {
   })
 
   describe("Valid creation", () => {
-    it("Should create a MedicalRecord with initial values", () => {
+    it("Should create a medical record with initial values", () => {
       expect(record.diagnoses).to.deep.equal([diagnosis])
       expect(record.medications).to.deep.equal([medication])
       expect(record.treatments).to.deep.equal([treatment])
     })
 
-    it("Should create an empty MedicalRecord when no parameters are passed", () => {
+    it("Should create an empty medical record when no parameters are passed", () => {
       const emptyRecord = new MedicalRecord()
 
       expect(emptyRecord.diagnoses).to.be.empty
