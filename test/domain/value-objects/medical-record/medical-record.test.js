@@ -54,9 +54,9 @@ describe("Medical record", () => {
 
   describe("Validation Errors", () => {
     const invalidCases = [
-      { method: "addDiagnosis", param: {}, error: "Invalid diagnosis object." },
-      { method: "addMedication", param: {}, error: "Invalid medication object." },
-      { method: "addTreatment", param: {}, error: "Invalid treatment object." },
+      { method: "addDiagnosis", param: {}, error: "Invalid diagnosis object" },
+      { method: "addMedication", param: {}, error: "Invalid medication object" },
+      { method: "addTreatment", param: {}, error: "Invalid treatment object" },
     ]
 
     invalidCases.forEach(({ method, param, error }) => {
