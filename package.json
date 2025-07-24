@@ -16,7 +16,7 @@
     "url": "https://github.com/deibsoncogo/test-2.03-ftr/issues"
   },
   "homepage": "https://github.com/deibsoncogo/test-2.03-ftr#readme",
-  "type": "commonjs",
+  "type": "module",
   "directories": {
     "test": "test"
   },
