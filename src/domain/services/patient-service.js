@@ -2,15 +2,14 @@ import { Patient } from "../entities/patient.js"
 
 export class PatientService {
   constructor(patientRepository) {
-    if (!patientRepository) throw new Error("patientRepository is required")
+    if (!patientRepository) throw new Error("PatientRepository is required")
     this.patientRepository = patientRepository
   }
 
-  addPatient(data) {
-    if (!(data instanceof Patient)) throw new Error("Invalid patient object")
+  addPatient(patientData) {
+    const patient = new Patient(patientData)
 
-    const id = this.patientRepository.add(data)
-
+    const id = this.patientRepository.add(patient)
     const savedPatient = this.patientRepository.findById(id)
 
     if (!savedPatient) throw new Error("Failed to save patient")
@@ -20,6 +19,10 @@ export class PatientService {
 
   findAllPatients() {
     return this.patientRepository.findAll()
+  }
+
+  findPatientById(id) {
+    return this.patientRepository.findById(id) || null
   }
 
   updatePatient(id, data) {
@@ -49,10 +52,10 @@ export class PatientService {
   }
 
   findPatientByName(name) {
-    return this.patientRepository.findByName(name) || null
+    return this.patientRepository.findByName(name)
   }
 
   findPatientByBloodType(bloodType) {
-    return this.patientRepository.findByBloodType(bloodType) || null
+    return this.patientRepository.findByBloodType(bloodType)
   }
 }

@@ -7,9 +7,11 @@ export class PatientRepository extends Repository {
   }
 
   add(patient) {
+    if (!(patient instanceof Patient)) throw new Error("Can only add Patient instances")
     const id = this.currentId++
-    super.add(id, { ...patient, id })
-    return id
+    patient._setId(id)
+    super.add(id, patient)
+    return id || null
   }
 
   findByName(name) {
