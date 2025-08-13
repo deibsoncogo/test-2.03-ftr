@@ -18,6 +18,8 @@
   "keywords": [],
   "scripts": {
     "test": "mocha --recursive test/**/*.test.js",
+    "coverage:check": "c8 --check-coverage --lines 90 --branches 80 mocha",
+    "coverage:html": "c8 --reporter=html mocha",
     "coverage": "c8 mocha"
   },
   "bugs": {
