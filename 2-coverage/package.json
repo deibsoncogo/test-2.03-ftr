@@ -1,0 +1,33 @@
+{
+  "name": "test-coverage-2.03-ftr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "author": {
+    "name": "Deibson Cogo",
+    "email": "deibsoncogo@outlook.com",
+    "url": "https://github.com/deibsoncogo/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deibsoncogo/test-2.03-ftr.git"
+  },
+  "keywords": [],
+  "scripts": {
+    "test": "mocha --recursive test/**/*.test.js",
+    "coverage": "c8 mocha"
+  },
+  "bugs": {
+    "url": "https://github.com/deibsoncogo/test-2.03-ftr/issues"
+  },
+  "homepage": "https://github.com/deibsoncogo/test-2.03-ftr#readme",
+  "devDependencies": {
+    "c8": "^10.1.3",
+    "chai": "^5.2.1",
+    "mocha": "^11.7.1",
+    "sinon": "^21.0.0"
+  }
+}
