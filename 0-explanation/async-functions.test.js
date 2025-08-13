@@ -1,5 +1,5 @@
 import { expect } from "chai"
-import { fetchData, fetchDataPromise } from "../src/async-functions.js"
+import { fetchData, fetchDataPromise } from "./async-functions.js"
 
 describe("fetchData function with callback", () => {
   it("Must return 'received data'", (done) => {
