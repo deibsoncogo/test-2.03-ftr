@@ -5,9 +5,7 @@ import { PatientService } from "../../../src/domain/services/patient-service.js"
 import { PatientController } from "../../../src/interfaces/controllers/patient-controller.js"
 
 describe("PatientController", () => {
-  let patientController
-  let patientService
-  let sandbox
+  let patientController, patientService, sandbox
 
   const mockPatientData = {
     identificationDocument: "12345678901",
@@ -107,15 +105,18 @@ describe("PatientController", () => {
       const req = { params: { id: "1" }, body: { name: "Jane Doe Updated" } }
       const res = { status: sandbox.stub().returnsThis(), json: sandbox.stub() }
 
-      const updatedPatient = new Patient({ ...mockPatientData, name: "Jane Doe Updated", id: 1 })
+      const updatedPatient = new Patient(
+        { ...mockPatientData, name: "Jane Doe Updated", id: 1 }
+      )
 
       patientService.updatePatient.resolves(updatedPatient)
 
       await patientController.updatePatient(req, res)
 
-      expect(patientService.updatePatient.calledWith("1", { name: "Jane Doe Updated", })).to.be.true
       expect(res.status.calledWith(200)).to.be.true
       expect(res.json.calledWith(updatedPatient)).to.be.true
+      expect(patientService.updatePatient.calledWith("1", { name: "Jane Doe Updated", }))
+        .to.be.true
     })
   })
 })

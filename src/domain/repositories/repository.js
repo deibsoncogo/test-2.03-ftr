@@ -5,8 +5,11 @@ export class Repository {
 
   add(id, entity) {
     id = Number(id)
+
     if (this.data.has(id)) throw new Error("Entity already exists")
+
     this.data.set(id, entity)
+
     return id
   }
 
@@ -20,13 +23,17 @@ export class Repository {
 
   update(id, entity) {
     id = Number(id)
+
     if (!this.data.has(id)) throw new Error("Entity not found")
+
     this.data.set(id, entity)
   }
 
   delete(id) {
     id = Number(id)
+
     if (!this.data.has(id)) throw new Error("Entity not found")
+
     this.data.delete(id)
   }
 }

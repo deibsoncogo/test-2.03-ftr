@@ -1,7 +1,7 @@
 import { expect } from "chai"
 import { EmergencyContact } from "../../../src/domain/value-objects/emergency-contact.js"
 
-describe("Emergency contact", () => {
+describe("EmergencyContact", () => {
   it("Should create an emergency contact with valid data", () => {
     const contact = new EmergencyContact("Jane Doe", "555-1234")
 

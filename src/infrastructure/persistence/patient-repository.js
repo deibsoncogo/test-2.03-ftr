@@ -1,3 +1,4 @@
+import { Patient } from "../../domain/entities/patient.js"
 import { Repository } from "../../domain/repositories/repository.js"
 
 export class PatientRepository extends Repository {
@@ -7,7 +8,7 @@ export class PatientRepository extends Repository {
   }
 
   add(patient) {
-    if (!(patient instanceof Patient)) throw new Error("Can only add Patient instances")
+    if (!(patient instanceof Patient)) throw new Error('Can only add Patient instances')
     const id = this.currentId++
     patient._setId(id)
     super.add(id, patient)

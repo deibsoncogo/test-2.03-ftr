@@ -4,9 +4,8 @@ import { MedicalRecord } from "../../../../src/domain/value-objects/medical-reco
 import { Medication } from "../../../../src/domain/value-objects/medical-record/medication.js"
 import { Treatment } from "../../../../src/domain/value-objects/medical-record/treatment.js"
 
-describe("Medical record", () => {
-  let record
-  let diagnosis, medication, treatment
+describe("MedicalRecord", () => {
+  let record, diagnosis, medication, treatment
 
   beforeEach(() => {
     diagnosis = new Diagnosis("Diabetes", "Chronic condition")
@@ -16,14 +15,14 @@ describe("Medical record", () => {
     record = new MedicalRecord([diagnosis], [medication], [treatment])
   })
 
-  describe("Valid creation", () => {
-    it("Should create a medical record with initial values", () => {
+  describe("Valid Creation", () => {
+    it("Should create a MedicalRecord with initial values", () => {
       expect(record.diagnoses).to.deep.equal([diagnosis])
       expect(record.medications).to.deep.equal([medication])
       expect(record.treatments).to.deep.equal([treatment])
     })
 
-    it("Should create an empty medical record when no parameters are passed", () => {
+    it("Should create an empty MedicalRecord when no parameters are passed", () => {
       const emptyRecord = new MedicalRecord()
 
       expect(emptyRecord.diagnoses).to.be.empty

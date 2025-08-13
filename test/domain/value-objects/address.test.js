@@ -5,17 +5,18 @@ describe("Address", () => {
   let address
 
   const validAddress = {
-    street: "Rua dos Bobos", number: 10, city: "São Paulo", state: "SP", zipCode: "12345",
+    street: "Rua dos Bobos", number: 10, city: "São Paulo",
+    state: "SP", zipCode: "12345",
   }
 
   beforeEach(() => {
     address = new Address(
       validAddress.street, validAddress.number, validAddress.city,
-      validAddress.state, validAddress.zipCode
+      validAddress.state, validAddress.zipCode,
     )
   })
 
-  describe("Valid creation", () => {
+  describe("Valid Creation", () => {
     it("Should create an Address with correct properties", () => {
       expect(address.street).to.equal(validAddress.street)
       expect(address.number).to.equal(validAddress.number)
@@ -31,8 +32,8 @@ describe("Address", () => {
       { field: "city", value: "", error: "Address fields cannot be empty" },
       { field: "state", value: "", error: "Address fields cannot be empty" },
       { field: "zipCode", value: "", error: "Address fields cannot be empty" },
-      { field: "number", value: -5, error: "Number must be a positive integer", },
-      { field: "number", value: "abc", error: "Number must be a positive integer", },
+      { field: "number", value: -5, error: "Number must be a positive integer" },
+      { field: "number", value: "abc", error: "Number must be a positive integer" },
       { field: "number", value: 0, error: "Number must be a positive integer" },
     ]
 
@@ -47,7 +48,7 @@ describe("Address", () => {
     })
   })
 
-  describe("Equality check", () => {
+  describe("Equality Check", () => {
     let anotherAddress
 
     beforeEach(() => {

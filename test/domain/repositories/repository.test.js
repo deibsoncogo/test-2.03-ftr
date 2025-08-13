@@ -11,7 +11,6 @@ describe("Repository", () => {
   it("Should add and retrieve an entity by ID", () => {
     const entity = { name: "John Doe" }
     repository.add(1, entity)
-
     expect(repository.findById(1)).to.deep.equal(entity)
   })
 
@@ -35,9 +34,7 @@ describe("Repository", () => {
   })
 
   it("Should throw an error when updating a non-existent entity", () => {
-    expect(() => repository.update(99, { name: "Non-existent" })).to.throw(
-      "Entity not found"
-    )
+    expect(() => repository.update(99, { name: "Non-existent" })).to.throw("Entity not found")
   })
 
   it("Should delete an existing entity", () => {

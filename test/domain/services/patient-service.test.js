@@ -4,16 +4,14 @@ import { Patient } from "../../../src/domain/entities/patient.js"
 import { PatientService } from "../../../src/domain/services/patient-service.js"
 import { PatientRepository } from "../../../src/infrastructure/persistence/patient-repository.js"
 
-describe("Patient Service", () => {
-  let patientRepository
-  let patientService
-  let sandbox
+describe("PatientService", () => {
+  let patientService, patientRepository, sandbox
 
   const mockPatientData = {
     identificationDocument: "12345678901",
     name: "John Doe",
     birthDate: "1990-01-01",
-    gender: "Male",
+    gender: "male",
     bloodType: "A+",
     address: {},
     phone: "555-1234",

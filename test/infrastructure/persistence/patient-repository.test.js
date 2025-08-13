@@ -3,8 +3,7 @@ import sinon from "sinon"
 import { PatientRepository } from "../../../src/infrastructure/persistence/patient-repository.js"
 
 describe("PatientRepository", () => {
-  let patientRepository
-  let sandbox
+  let patientRepository, sandbox
 
   beforeEach(() => {
     patientRepository = new PatientRepository()
@@ -15,7 +14,7 @@ describe("PatientRepository", () => {
     sandbox.restore()
   })
 
-  it("should generate unique IDs when adding patients", () => {
+  it("Should generate unique IDs when adding patients", () => {
     const addStub = sandbox.stub().onCall(0).returns(1).onCall(1).returns(2)
 
     const patient1 = { name: "John Doe", bloodType: "O+" }
@@ -31,7 +30,7 @@ describe("PatientRepository", () => {
     sinon.assert.calledWith(addStub.secondCall, patient2)
   })
 
-  it("should find patients by name", () => {
+  it("Should find patients by name", () => {
     const patients = [
       { name: "Alice", bloodType: "A-" },
       { name: "Alice", bloodType: "O-" },
@@ -46,7 +45,7 @@ describe("PatientRepository", () => {
     expect(results[1].bloodType).to.equal("O-")
   })
 
-  it("should find patients by blood type", () => {
+  it("Should find patients by blood type", () => {
     const patients = [
       { name: "Charlie", bloodType: "A-" },
       { name: "Alice", bloodType: "A-" },
@@ -61,7 +60,7 @@ describe("PatientRepository", () => {
     expect(results[1].name).to.equal("Alice")
   })
 
-  it("should add patients with unique IDs", () => {
+  it("Should add patients with unique IDs", () => {
     const patient1 = { name: "Alice", bloodType: "A+" }
     const patient2 = { name: "Bob", bloodType: "O-" }
 
@@ -74,11 +73,12 @@ describe("PatientRepository", () => {
     sinon.assert.calledWith(addStub.secondCall, patient2)
   })
 
-  it("should update an existing patient", () => {
+  it("Should update an existing patient", () => {
     const patient = { name: "Charlie", bloodType: "B+" }
     const updatedPatient = { name: "Charlie", bloodType: "O+" }
 
     sandbox.stub(patientRepository, "findById").returns(patient)
+
     const updateStub = sandbox.stub(patientRepository, "update")
 
     patientRepository.update(1, updatedPatient)
@@ -86,10 +86,11 @@ describe("PatientRepository", () => {
     sinon.assert.calledWith(updateStub, 1, updatedPatient)
   })
 
-  it("should delete a patient", () => {
+  it("Should delete a patient", () => {
     const patient = { name: "David", bloodType: "AB-" }
 
     sandbox.stub(patientRepository, "findById").returns(patient)
+
     const deleteStub = sandbox.stub(patientRepository, "delete")
 
     patientRepository.delete(1)

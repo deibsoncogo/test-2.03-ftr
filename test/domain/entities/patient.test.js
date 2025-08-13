@@ -4,12 +4,12 @@ import { Patient } from "../../../src/domain/entities/patient.js"
 import { Address } from "../../../src/domain/value-objects/address.js"
 import { EmergencyContact } from "../../../src/domain/value-objects/emergency-contact.js"
 
-describe("Patient entity", () => {
+describe("PatientEntity", () => {
   const defaultPatientData = {
     identificationDocument: "12345678901",
     name: "John Doe",
     birthDate: "1990-01-01",
-    gender: "Male",
+    gender: "male",
     bloodType: "A+",
     address: new Address("123 Main St", 10, "Springfield", "IL", "12345"),
     phone: "555-1234",
@@ -29,7 +29,7 @@ describe("Patient entity", () => {
       expect(patient.name).to.equal("John Doe")
       expect(patient.identificationDocument).to.equal("12345678901")
       expect(patient.birthDate).to.be.instanceOf(Date)
-      expect(patient.gender).to.equal("Male")
+      expect(patient.gender).to.equal("male")
       expect(patient.bloodType).to.equal("A+")
       expect(patient.address).to.equal(defaultPatientData.address)
       expect(patient.phone).to.equal("555-1234")
